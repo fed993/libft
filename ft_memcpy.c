@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 16:56:03 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/09/27 17:38:21 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/09 12:54:54 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/10 16:00:58 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *str)
+void	*ft_memcpy(void *str1, const void *str2, size_t n)
 {
-	int		num;
-	size_t	negflag;
-	char	*temp;
+	size_t	i;
 
-	num = 0;
-	temp = ft_skipblanks(str);
-	if (*temp == '-')
+	i = 0;
+	while (i < n)
 	{
-		negflag = 1;
-		temp++;
+		((char*)str2)[i] = ((char*)str1)[i];
+		i++;
 	}
-	while ((*temp >= '0') && (*temp <= '9'))
-	{
-		num = num * 10 + (*temp - '0');
-		temp++;
-	}
-	if (ft_strcontains(str, '-'))
-		num  = num * -1;
-	return (num);
+	return (str1);
+}
+
+int     main()
+{
+	char    *str1;
+	char    *str2;
+	char    buf[51];
+
+	str1 = malloc(50);
+	str2 = malloc(50);
+	str1 = "sample text";
+	str2 = ft_memcpy(buf, str1, 50);
+	write(1, str2, sizeof(str2));
 }

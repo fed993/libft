@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 22:43:44 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/09/21 23:42:40 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/05 13:53:28 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/09 12:51:24 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	*ft_memset(void *str, int c, size_t n)
 {
-	unsigned int	i;
-	char			*new;
+	size_t	i;
 
 	i = 0;
-	new =(char *) malloc((sizeof(char) * ((int)len)) + 1);
-	if(new == NULL)
-		return NULL;
-	while(i < len)
+	while (i < n)
 	{
-		new[i] = s[i + start];
+		((char*)str)[i] = c;
 		i++;
 	}
-	new[i] = '\0';
-	return new;
+	return (str);
 }

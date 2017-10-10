@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcontains.c                                   :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 17:04:24 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/09/27 17:11:24 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/06 19:27:06 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/06 19:53:02 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcontains(char *s, char c)
+char	*ft_strnew(size_t size)
 {
-	while (*s != '\0')
+	int		i;
+	char	*str;
+	
+	i = 0;
+	str = (char*)malloc((sizeof(char) * (int)size) + 1);
+	if(!str)
+		return (NULL);
+	while(i < (int)(size + 1))
 	{
-		if (*s == c)
-			return (1);
-		s++;
+		str[i] = '\0';
+		i++;
 	}
-	return (0);
+	return (str);
 }

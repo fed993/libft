@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 23:32:37 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/09/21 23:46:15 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/06 22:36:33 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/06 22:38:56 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *str)
+void	ft_memdel(void **ap)
 {
-	int		i;
-
-	i = 0;
-	while(str[i] != '\0')
+	if(*ap)
 	{
-		write(1, &str[i], 1);
-		i++;
+		free(*ap);
+		*ap = NULL;
 	}
 }

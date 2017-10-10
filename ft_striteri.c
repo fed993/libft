@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_skipblanks.c                                    :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 17:27:46 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/09/27 17:28:55 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/06 23:11:29 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/06 23:37:21 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_skipblanks(char *s)
+void	ft_striteri(char *s, char (*f)(unsigned int, char *))
 {
-	while ((*s == '\t' ) || (*s == '\v') || (*s == '\f') || (*s == '\r')
-			|| (*s == '\n') || (*s == ' '))
-		s++;
-	return (s);
+	int		i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, s);
+		i++;
+	}
 }
