@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 17:14:26 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/09 13:01:12 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/11 00:19:05 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+size_t	ft_strlen(const char *str);
 
 void	ft_putstr(char const *str);
 void	ft_putstr_fd(char const *s, int fd);
@@ -44,6 +45,5 @@ char	*ft_strtrim(char const *s);
 char	*ft_stricut(const char *src, int strt, int end);
 char	*ft_strncpy(char *dest, char *src, size_t len);
 char	*ft_strnew(size_t size);
-size_t	ft_strlen(const char *str);
 
 #endif
