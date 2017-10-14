@@ -1,35 +1,22 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/22 00:57:13 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/01 13:46:19 by fpolyans         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_strtrim(char const *s)
 {
+	char	*str;
 	int		i;
-	int		start;
-	int		end;
 
-	i = 0;
-	while (s[i] != '\0')
+	str = (char*)malloc(ft_strlen(s) * sizeof(char));
+	if (str)
 	{
-		if ((s[i] != ' ') || (s[i] != '\n') || (s[i] != '\t'))
+		i = 0;
+		while (*s)
 		{
-			start = i;
+			if (*s != ' ' && *s != '\n' && *s != '\t')
+				str[i++] = *s;
+			s++;
 		}
-		else
-		{
-			end = i;
-		}
-		i++;
+		str[i] = '\0';
 	}
-	return (ft_stricut(s, start, end));
+	return (str);
 }
