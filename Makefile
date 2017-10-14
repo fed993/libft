@@ -6,7 +6,7 @@
 #    By: fpolyans <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/11 00:00:42 by fpolyans          #+#    #+#              #
-#    Updated: 2017/09/27 21:57:20 by fpolyans         ###   ########.fr        #
+#    Updated: 2017/10/14 01:21:09 by fpolyans         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ name:
 all: name
 
 debug:
-	gcc -g $(FLAGS) $(SOURCES) $(MAIN)
-	gdb ./a.out $(DEBUG_ARGS)
+	gcc -g ft_memccpy.c libft.h
+	gdb ./a.out
 
 clean:
 	rm -rf $(OBJECTS)
