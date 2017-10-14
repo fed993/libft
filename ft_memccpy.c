@@ -25,7 +25,7 @@ void	*ft_memccpy(void *str1, const void *str2, int c,  size_t n)
 		i++;
 	}
 	((char*)str1)[i] = ((char*)str2)[i];
-	return (str1);
+	return (&str1[i + 1]);
 }
 
 int     main()
@@ -34,7 +34,7 @@ int     main()
 	char buff1[22];
 	
 	__builtin___memset_chk (buff1, 0, sizeof(buff1), __builtin_object_size (buff1, 0));
-	char *r1 = __builtin___memccpy_chk (buff1, src, 'm', 22, __builtin_object_size (buff1, 0));
+	char *r1 = (char*)__builtin___memccpy_chk (buff1, src, 'm', 22, __builtin_object_size (buff1, 0));
 	char *r2 = ft_memccpy(buff1, src, 'm', 22);
 	if (r1 != r2)
 	{
