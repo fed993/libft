@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 17:30:15 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/20 20:29:06 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 01:55:05 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/20 01:58:10 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+int		ft_isprint(int c)
 {
-	int		i;
-	char	*newstr;
-
-	i = 0;
-	newstr = dest;
-	while (*dest)
+	if ((c > 31) && (c < 127))
 	{
-		dest++;
+		return (1);
 	}
-	ft_strcpy(dest, src);
-	return newstr;
+	else
+	{
+		return (0);
+	}
 }

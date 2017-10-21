@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 17:30:15 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/20 20:29:06 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/14 03:00:06 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/14 16:50:24 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int		i;
-	char	*newstr;
+	char	*s;
+	char	*d;
 
-	i = 0;
-	newstr = dest;
-	while (*dest)
+	s = (char*)src;
+	d = (char*)dst;
+	while (len > 0)
 	{
-		dest++;
+		if (dst >= src)
+		{
+			*(d) = *(s);
+			d++;
+			s++;
+			len--;
+		}
+		else
+		{
+			*(d + (len - 1)) = *(s + (len - 1));
+			len--;
+		}
 	}
-	ft_strcpy(dest, src);
-	return newstr;
+	return (dst);
 }

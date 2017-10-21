@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 17:30:15 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/20 20:29:06 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 20:03:58 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/20 20:27:11 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int		i;
-	char	*newstr;
+	char	*out;
 
-	i = 0;
-	newstr = dest;
-	while (*dest)
+	out = s1;
+	while(*s1)
 	{
-		dest++;
+		s1++;
 	}
-	ft_strcpy(dest, src);
-	return newstr;
+	while(n-- && *s2)
+	{
+		*s1++ = *s2++;
+	}
+	*s1 = '\0';
+	return (out);
 }

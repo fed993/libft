@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 17:30:15 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/20 20:29:06 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/14 19:58:51 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/14 20:02:03 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char	*out;
 	int		i;
-	char	*newstr;
 
-	i = 0;
-	newstr = dest;
-	while (*dest)
+	out = (char*)malloc((ft_strlen(s) * sizeof(char)) + 1);
+	if (out)
 	{
-		dest++;
+		i = 0;
+		while(s[i])
+		{
+			out[i] = f(i, s[i]);
+			i++;
+		}
+		out[i] = '\0';
 	}
-	ft_strcpy(dest, src);
-	return newstr;
+	return (out);
 }

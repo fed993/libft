@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 17:30:15 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/20 20:29:06 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 16:30:30 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/20 17:33:54 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	int		i;
-	char	*newstr;
-
-	i = 0;
-	newstr = dest;
-	while (*dest)
+	while ((*s1) && (*s2) && (*s1 == *s2))
 	{
-		dest++;
+		s1++;
+		s2++;
 	}
-	ft_strcpy(dest, src);
-	return newstr;
+	return ((int)((unsigned char)*s1 - (unsigned char)*s2));
 }

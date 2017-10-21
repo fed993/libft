@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 17:14:26 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/09 13:01:12 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/20 20:50:14 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ int		ft_strcontains(char *str, char c);
 int		ft_atoi(char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(const char *s1, const char *s2);
 void	*ft_memset(void *str, int c, size_t n);
 void	*ft_memcpy(void *str1, const void *str2, size_t n);
+char	*ft_strcat(char *dest, const char *src);
+char	*ft_strcpy(char *s1, const char *s2);
 char	*ft_skipblanks(char *str);
 char	*ft_skipneg(char *str);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);

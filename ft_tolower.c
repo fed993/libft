@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 17:30:15 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/20 20:29:06 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 01:54:00 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/20 01:54:36 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+int		ft_tolower(int c)
 {
-	int		i;
-	char	*newstr;
-
-	i = 0;
-	newstr = dest;
-	while (*dest)
+	if ((c > 64) && (c < 91))
 	{
-		dest++;
+		return (c + 32);
 	}
-	ft_strcpy(dest, src);
-	return newstr;
+	else
+	{
+		return (c);
+	}
 }

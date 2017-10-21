@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/06 23:11:29 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/06 23:37:21 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/20 02:12:58 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_striteri(char *s, char (*f)(unsigned int, char *))
 {
-	int		i;
+	unsigned int	i;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
-		f(i, s);
+		f(i, &s[i]);
 		i++;
 	}
 }

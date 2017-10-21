@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 17:30:15 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/20 20:29:06 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 15:05:07 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/20 15:55:58 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strnstr(const char *src, const char *in, size_t len)
 {
-	int		i;
-	char	*newstr;
+	char	*s1;
+	char	*s2;
+	size_t	i;
 
-	i = 0;
-	newstr = dest;
-	while (*dest)
+	if (!*in)
+		return ((char*)src);
+	while (*src && len--)
 	{
-		dest++;
+		if (*src == *in)
+		{
+			i = len;
+			s1 = (char*)src + 1;
+			s2 = (char*)in + 1;
+			while (i-- && (*s1) && (*s2) && (*s1 == *s2))
+			{
+				s1++;
+				s2++;
+			}
+			if (!*s2)
+				return ((char*)src);
+		}
+		src++;
 	}
-	ft_strcpy(dest, src);
-	return newstr;
+	return (NULL);
 }

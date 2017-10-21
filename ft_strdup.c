@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 17:30:15 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/20 20:29:06 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 17:45:30 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/20 18:01:52 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strdup(const char *s1)
 {
-	int		i;
-	char	*newstr;
+	char	*out;
 
-	i = 0;
-	newstr = dest;
-	while (*dest)
+	out = (char*)malloc((sizeof(char) * ft_strlen(s1)));
+	if (out)
 	{
-		dest++;
+		ft_strcpy(out, s1);
 	}
-	ft_strcpy(dest, src);
-	return newstr;
+	return (out);
 }

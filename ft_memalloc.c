@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 17:30:15 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/20 20:29:06 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/20 01:59:46 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/20 02:04:50 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+void	*ft_memalloc(size_t size)
 {
-	int		i;
-	char	*newstr;
+	size_t	i;
+	void	*mem;
 
 	i = 0;
-	newstr = dest;
-	while (*dest)
+	mem = malloc(size);
+	if (!mem)
 	{
-		dest++;
+		return (NULL);
 	}
-	ft_strcpy(dest, src);
-	return newstr;
+	while (i < size)
+	{
+		((char*)mem)[i] = 0;
+		i++;
+	}
+	((char*)mem)[i] = '\0';
+	return (mem);
 }
