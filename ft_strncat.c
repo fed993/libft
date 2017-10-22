@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:03:58 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/20 20:27:11 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/21 05:24:43 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 	char	*out;
 
 	out = s1;
-	while(*s1)
+	while (*s1)
 	{
 		s1++;
 	}
-	while(n-- && *s2)
+	while (n-- && *s2)
 	{
 		*s1++ = *s2++;
 	}

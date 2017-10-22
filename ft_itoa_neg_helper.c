@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_itoa_neg_helper.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/06 22:36:33 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 05:22:40 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 05:43:49 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 05:46:00 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	ft_itoa_neg_helper(int *n, int *negative_flag)
 {
-	if (*ap)
+	if (*n < 0)
 	{
-		free(*ap);
-		*ap = NULL;
+		*n *= -1;
+		*negative_flag = 1;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/22 03:54:54 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/09/22 03:56:49 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/21 01:11:29 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 char	*ft_strncpy(char *dest, char *src, size_t len)
 {
-	int i;
-	int b;
+	size_t	size;
 
-	i = 0;
-	b = 0;
-	while ((dest[i] = src[b]) != '\0' && (size_t)i < len)
+	size = ft_strlen(src);
+	if (size < len)
 	{
-		i++;
-		b++;
+		ft_memset(dest, '\0', len);
+		ft_memcpy(dest, src, size);
 	}
-	while ((ft_strlen(src) <= ft_strlen(dest)) && (size_t)i < len)
+	else
 	{
-		dest[i] = src[b];
-		i++;
+		ft_memcpy(dest, src, len);
 	}
 	return (dest);
 }

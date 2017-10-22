@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_wrdcnt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/06 22:36:33 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 05:22:40 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 02:03:21 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 02:58:36 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+int		ft_wrdcnt(const char *s, char c)
 {
-	if (*ap)
+	int		count;
+
+	count = 0;
+	while (s && *s)
 	{
-		free(*ap);
-		*ap = NULL;
+		if (*s != c)
+		{
+			++count;
+			s = ft_strchr(s, c);
+		}
+		else
+			s++;
 	}
+	return (count);
 }

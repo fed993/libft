@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/14 19:58:51 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/14 20:02:03 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/21 05:29:39 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (out)
 	{
 		i = 0;
-		while(s[i])
+		while (s[i])
 		{
 			out[i] = f(i, s[i]);
 			i++;

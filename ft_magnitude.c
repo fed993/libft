@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_magnitude.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/06 22:36:33 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 05:22:40 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 04:19:37 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 05:26:28 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+int		ft_magnitude(size_t low, long n)
 {
-	if (*ap)
+	int		mag;
+
+	mag = 0;
+	if (n < 0)
+		mag++;
+	while (n)
 	{
-		free(*ap);
-		*ap = NULL;
+		mag++;
+		n /= (long)low;
 	}
+	if (!mag)
+		return (1);
+	return (mag);
 }

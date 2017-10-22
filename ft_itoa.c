@@ -6,49 +6,37 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 18:56:51 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/05 12:52:13 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/21 08:02:44 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_magnitude(int n)
+char			*ft_itoa(int n)
 {
-	int		mag;
+	int		temp_n;
+	int		len;
+	int		negative_flag;
+	char	*out;
 
-	mag = 0;
-	if (n < 0)
-		n = n * -1;
-	while (n > 0)
-	{
-		n = n / 10;
-		mag++;
-	}
-	return (mag);
-}
-
-
-char	*ft_itoa(int n)
-{
-	int		divisor;
-	char	*nstr;
-
-	divisor = 0;
-	nstr = (char*)malloc((sizeof(char) * ft_magnitude(n)) + 1);
-	if(!nstr)
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	temp_n = n;
+	len = 2;
+	negative_flag = 0;
+	ft_itoa_neg_helper(&n, &negative_flag);
+	while (temp_n /= 10)
+		len++;
+	len += negative_flag;
+	if ((out = (char*)malloc(sizeof(char) * len)) == NULL)
 		return (NULL);
-	if (n < 0)
+	out[--len] = '\0';
+	while (len--)
 	{
-		*nstr = '-';
-		nstr++;
+		out[len] = n % 10 + '0';
+		n = n / 10;
 	}
-	while (n > 0)
-	{
-		*nstr = (n / divisor) + '0';
-		n = n % 10;
-		divisor = divisor / 10;
-		nstr++;
-	}
-	*nstr = '\0';
-	return (nstr);
+	if (negative_flag)
+		out[0] = '-';
+	return (out);
 }

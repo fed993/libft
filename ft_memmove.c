@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/14 03:00:06 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/14 16:50:24 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/20 21:22:40 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*s;
-	char	*d;
+	char	*out;
 
-	s = (char*)src;
-	d = (char*)dst;
-	while (len > 0)
+	out = dst;
+	if (dst < src)
 	{
-		if (dst >= src)
+		while ((size_t)((char*)dst - out) < len)
 		{
-			*(d) = *(s);
-			d++;
-			s++;
-			len--;
-		}
-		else
-		{
-			*(d + (len - 1)) = *(s + (len - 1));
-			len--;
+			*(unsigned char*)dst++ = *(unsigned char*)src++;
 		}
 	}
-	return (dst);
+	else
+	{
+		while (len-- > 0)
+		{
+			((unsigned char*)dst)[len] = ((unsigned char*)src)[len];
+		}
+	}
+	return (out);
 }

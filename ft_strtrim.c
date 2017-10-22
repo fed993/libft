@@ -6,7 +6,7 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 20:14:00 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/13 20:20:22 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/21 05:26:59 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,18 @@
 
 char	*ft_strtrim(char const *s)
 {
-	char	*str;
-	int		i;
+	char	*strt;
+	char	*end;
 
-	str = (char*)malloc((ft_strlen(s) * sizeof(char)) + 1);
-	if (str)
+	strt = (char*)s;
+	end = ft_strchr(s, 0) - 1;
+	while (ft_cantrim(*strt))
 	{
-		i = 0;
-		while (*s)
-		{
-			if (*s != ' ' && *s != '\n' && *s != '\t')
-			{
-				i++;
-				str[i] = *s;
-			}
-			s++;
-		}
-		str[i] = '\0';
+		strt++;
 	}
-	return (str);
+	while (ft_cantrim(*end) && (end > strt))
+	{
+		end--;
+	}
+	return (ft_strsub(strt, 0, 1 + end - strt));
 }

@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_determine_int_length.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/06 22:36:33 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/21 05:22:40 by fpolyans         ###   ########.fr       */
+/*   Created: 2017/10/21 05:08:22 by fpolyans          #+#    #+#             */
+/*   Updated: 2017/10/21 05:28:54 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+int		ft_determine_int_length(int nb)
 {
-	if (*ap)
+	int digt_cnt;
+
+	digt_cnt = 1;
+	nb = (nb < 0) ? -nb : nb;
+	while (nb > 10)
 	{
-		free(*ap);
-		*ap = NULL;
+		nb = (nb / 10);
+		digt_cnt++;
 	}
+	return (digt_cnt);
 }

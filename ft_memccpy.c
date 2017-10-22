@@ -6,13 +6,13 @@
 /*   By: fpolyans <fpolyans@42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/09 13:32:56 by fpolyans          #+#    #+#             */
-/*   Updated: 2017/10/14 02:16:20 by fpolyans         ###   ########.fr       */
+/*   Updated: 2017/10/21 05:21:28 by fpolyans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *str1, const void *str2, int c,  size_t n)
+void	*ft_memccpy(void *str1, const void *str2, int c, size_t n)
 {
 	size_t	i;
 
